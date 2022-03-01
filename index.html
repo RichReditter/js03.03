@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul> 
+        <li class = 'liPlus'>1(plus)</li>
+        <li class = 'liMinus'>2(minus)</li>
+        <li class = 'liMultiplication'>3(умножение)</li>
+        <li class = 'liDivision'>4(деление)</li>
+        <li class = 'liExponentiation'>5(возведение в степень)</li>
+    </ul>
+
+
+    <p> 0 </p>
+    <input type="button" value = "minus" class = "minus"/>
+    <input type="button" value = "plus" class='plus'/>
+
+    <ul class="second">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+    </ul>
+    <button> add</button>
+
+    <div class="form">
+
+    </div>
+    
+    <style> 
+        
+        div{
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            background-color: cyan;
+        }
+        
+    </style>
+    <script> 
+        const li = document.body.querySelectorAll('li')
+        function handler(e){
+            this.style.backgroundColor = 'yellow'
+        }
+        li.forEach( li => { 
+            li.addEventListener('click', handler)
+        })
+        
+        // 
+        // 
+        // 
+
+        let p = document.body.querySelector('p')
+        
+        
+        let minus = document.body.querySelector('.minus')
+        let plus = document.body.querySelector('.plus')
+        function minuss(){
+            p.textContent = Number.parseInt(p.textContent)-1;
+        }
+        function pluss(){
+            p.textContent = Number.parseInt(p.textContent)+1;
+        }
+
+        minus.addEventListener('click',minuss)
+        plus.addEventListener('click', pluss)
+
+        // 
+        // 
+        // 
+
+        const liPlus = document.querySelector('.liPlus')
+        const liMinus = document.querySelector('.liMinus')
+        const liMultiplication = document.querySelector('.liMultiplication')
+        const liDivision = document.querySelector('.liDivision')
+        const liExponentiation = document.querySelector('.liExponentiation')
+
+        function liPluss(){
+            liPlus.textContent = Number.parseInt(liPlus.textContent) + Number.parseInt(liPlus.textContent)
+        }
+        function liMinuss(){
+            liMinus.textContent = Number.parseInt(liMinus.textContent) - Number.parseInt(liMinus.textContent)
+            // if(liMinus.textContent == 0){
+            //     liMinus.textContent = Number.parseInt(liMinus.textContent)-10
+            // }
+        }
+        function liMultiplicationn(){
+            liMultiplication.textContent = Number.parseInt(liMultiplication.textContent) * Number.parseInt(liMultiplication.textContent)
+        }
+        function liDivisionn(){
+            liDivision.textContent = Number.parseInt(liDivision.textContent) / Number.parseInt(liDivision.textContent)
+        }
+        function liExponentiationn(){
+            liExponentiation.textContent = Number.parseInt(liExponentiation.textContent) ** Number.parseInt(liExponentiation.textContent)
+        }
+        liPlus.addEventListener('click', liPluss)
+        liMinus.addEventListener('click',liMinuss)
+        liMultiplication.addEventListener('click', liMultiplicationn)
+        liDivision.addEventListener('click',liDivisionn)
+        liExponentiation.addEventListener('click',liExponentiationn)
+        
+        // 
+        // 
+        // 
+
+        const ul = document.querySelector('.second')
+        ul.addEventListener('click', (event)=>{
+            if(event.target.tagName === 'LI'){
+                event.target.style.backgroundColor = 'red'
+            }
+        })
+        const button = document.body.querySelector('button');
+        button.addEventListener('click', ()=>{
+            const li = document.createElement('li');
+            li.textContent = Math.random();
+            ul.append(li);
+        })
+
+        const div  = document.body.querySelector('div')
+        document.body.addEventListener('click', function(event){
+            div.style.left = event.clientX + 'px'
+            div.style.top = event.clientY + 'px'
+        })
+
+        
+        
+        
+    </script>
+</body>
+</html>
