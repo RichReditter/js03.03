@@ -7,6 +7,42 @@
     <title>Document</title>
 </head>
 <body>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            background-color: cyan;
+        }
+        .left{ 
+            top: 40%;
+            position: relative;
+            width: 20%;
+            height: 10%;
+        }
+        .top{ 
+            top: 10%;
+            left: -5%;
+            position: relative;
+            width: 20%;
+            height: 10%;
+        }
+        .right{ 
+            top: 40%;
+            left: 58%;
+            position: relative;
+            width: 20%;
+            height: 10%;
+        }
+        .bottom{ 
+            top: 75%;
+            left: -30%;
+            position: relative;
+            width: 30%;
+            height: 10%;
+        }
+
+    </style>
     <ul> 
         <li class = 'liPlus'>1(plus)</li>
         <li class = 'liMinus'>2(minus)</li>
@@ -35,19 +71,16 @@
     <button> add</button>
 
     <div class="form">
-
+        <button class="left">left </button>
+        <button class="right">right </button>
+        <button class="top">top </button>
+        <button  class="bottom">bottom </button>
     </div>
+    <button class="hidden"  width="20%"> 
+        click to hide
+    </button>
+
     
-    <style> 
-        
-        div{
-            width: 200px;
-            height: 200px;
-            position: absolute;
-            background-color: cyan;
-        }
-        
-    </style>
     <script> 
         const li = document.body.querySelectorAll('li')
         function handler(e){
@@ -127,15 +160,35 @@
             ul.append(li);
         })
 
-        const div  = document.body.querySelector('div')
-        document.body.addEventListener('click', function(event){
-            div.style.left = event.clientX + 'px'
-            div.style.top = event.clientY + 'px'
-        })
+        
 
-        
-        
-        
+        // 
+        // 
+        // 
+
+        const toHide = document.body.querySelector('.hidden')
+        toHide.addEventListener('click', (event)=>{
+            toHide.hidden = true
+        });
+
+        // 
+        // 
+        // 
+
+        const left = document.body.querySelector('.left')
+        const right = document.body.querySelector('.right')
+        const bottom = document.body.querySelector('.bottom')
+        const top = document.body.querySelector('.top')
+        const form = document.body.querySelector('.form')
+
+        // left.addEventListener('click',(event)=>{
+        //     form.style.left.textContent = Number.parseInt(form.left.textContent) + 10 
+        // })
+        function rightButton(event) {
+            form.style.right = form.style.right + 50 + "px"
+        }
+
+        bottom.addEventListener('click',rightButton)
     </script>
 </body>
 </html>
